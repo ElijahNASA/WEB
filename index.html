@@ -3,33 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login System</title>
+    <title>Login and Messaging System</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
+            background-color: #1c0d46;
         }
-        .login-container {
-            background: white;
+        .login-container, .message-container {
+            background: #3f238d;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none; /* Hide by default */
         }
-        .login-container h2 {
+        .login-container h2, .message-container h2 {
             margin-bottom: 20px;
         }
-        .login-container input {
+        input, button {
             width: 100%;
             padding: 10px;
             margin: 5px 0;
         }
-        .login-container button {
-            width: 100%;
-            padding: 10px;
+        button {
             background-color: #28a745;
             color: white;
             border: none;
@@ -39,11 +39,18 @@
             color: red;
             margin-top: 10px;
         }
+        #messages {
+            margin-bottom: 20px;
+            border: 1px solid white;
+            padding: 10px;
+            height: 300px;
+            overflow-y: scroll;
+        }
     </style>
 </head>
 <body>
 
-<div class="login-container">
+<div class="login-container" id="loginContainer">
     <h2>Login</h2>
     <form id="loginForm">
         <input type="text" id="username" placeholder="Username" required>
@@ -53,28 +60,62 @@
     </form>
 </div>
 
-<script>
-    const form = document.getElementById('loginForm');
-    const messageDiv = document.getElementById('message');
+<div class="message-container" id="messageContainer">
+    <h2>Messaging System</h2>
+    <div id="messages"></div>
+    <form id="messageForm">
+        <input type="text" id="messageInput" placeholder="Type your message here" required>
+        <button type="submit">Send</button>
+    </form>
+</div>
 
-    form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form submission
+<script>
+    // Login functionality
+    const loginForm = document.getElementById('loginForm');
+    const messageDiv = document.getElementById('message');
+    const loginContainer = document.getElementById('loginContainer');
+    const messageContainer = document.getElementById('messageContainer');
+
+    const validUsername = 'WhisperSecret817';
+    const validPassword = 'SchoolChat';
+
+    loginContainer.style.display = 'flex'; // Show login form
+
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
 
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
-        // Example credentials (for demonstration purposes only)
-        const validUsername = 'user';
-        const validPassword = 'pass';
-
         if (username === validUsername && password === validPassword) {
             messageDiv.textContent = 'Login successful!';
             messageDiv.style.color = 'green';
+            loginContainer.style.display = 'none'; // Hide login form
+            messageContainer.style.display = 'block'; // Show messaging system
         } else {
             messageDiv.textContent = 'Invalid username or password.';
             messageDiv.style.color = 'red';
         }
     });
+
+    // Messaging functionality
+    const messageForm = document.getElementById('messageForm');
+    const messageInput = document.getElementById('messageInput');
+    const messagesDiv = document.getElementById('messages');
+
+    messageForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const message = messageInput.value;
+        displayMessage(message);
+        messageInput.value = ''; // Clear the input
+    });
+
+    function displayMessage(message) {
+        const messageElement = document.createElement('div');
+        messageElement.textContent = message;
+        messagesDiv.appendChild(messageElement);
+        messagesDiv.scrollTop = messagesDiv.scrollHeight; // Scroll to the bottom
+    }
 </script>
 
 </body>
