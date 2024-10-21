@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login and Messaging System</title>
+    <title>Chat Rooms</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,28 +12,28 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #1c0d46;
+            background-color: rgb(58, 58, 58);
         }
         .login-container, .message-container {
-            background: #3f238d;
+            background-color: rgb(58, 58, 58);
             padding: 20px;
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: none; /* Hide by default */
+            box-shadow: 0 0 10px rgba(223, 51, 51, 0.5);
+            display: none;
         }
         .login-container h2, .message-container h2 {
             margin-bottom: 20px;
         }
         input, button {
             width: 100%;
-            padding: 10px;
+            padding: 5px;
             margin: 5px 0;
         }
         button {
-            background-color: #28a745;
-            color: white;
-            border: none;
+            background-color: #690000;
+            color: rgb(97, 97, 97);
             border-radius: 5px;
+            position-anchor: 10, 10, 10, 10;
         }
         .message {
             color: red;
@@ -41,7 +41,7 @@
         }
         #messages {
             margin-bottom: 20px;
-            border: 1px solid white;
+            border: 1px solid rgb(66, 19, 19);
             padding: 10px;
             height: 300px;
             overflow-y: scroll;
@@ -51,7 +51,7 @@
 <body>
 
 <div class="login-container" id="loginContainer">
-    <h2>Login</h2>
+    <h2></h2>
     <form id="loginForm">
         <input type="text" id="username" placeholder="Username" required>
         <input type="password" id="password" placeholder="Password" required>
@@ -79,7 +79,7 @@
     const validUsername = 'WhisperSecret817';
     const validPassword = 'SchoolChat';
 
-    loginContainer.style.display = 'flex'; // Show login form
+    loginContainer.style.display = 'flex';
 
     loginForm.addEventListener('submit', function(event) {
         event.preventDefault();
@@ -90,15 +90,14 @@
         if (username === validUsername && password === validPassword) {
             messageDiv.textContent = 'Login successful!';
             messageDiv.style.color = 'green';
-            loginContainer.style.display = 'none'; // Hide login form
-            messageContainer.style.display = 'block'; // Show messaging system
+            loginContainer.style.display = 'none';
+            messageContainer.style.display = 'block';
         } else {
             messageDiv.textContent = 'Invalid username or password.';
             messageDiv.style.color = 'red';
         }
     });
 
-    // Messaging functionality
     const messageForm = document.getElementById('messageForm');
     const messageInput = document.getElementById('messageInput');
     const messagesDiv = document.getElementById('messages');
@@ -107,14 +106,14 @@
         event.preventDefault();
         const message = messageInput.value;
         displayMessage(message);
-        messageInput.value = ''; // Clear the input
+        messageInput.value = '';
     });
 
     function displayMessage(message) {
         const messageElement = document.createElement('div');
         messageElement.textContent = message;
         messagesDiv.appendChild(messageElement);
-        messagesDiv.scrollTop = messagesDiv.scrollHeight; // Scroll to the bottom
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
     }
 </script>
 
