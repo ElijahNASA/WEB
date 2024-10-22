@@ -3,119 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Rooms</title>
+    <title>Google Classroom</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: rgb(58, 58, 58);
+            padding: 0;
+            background-color: #616d5a;
         }
-        .login-container, .message-container {
-            background-color: rgb(58, 58, 58);
+        header {
+            background-color: #616d5a9f;
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(223, 51, 51, 0.5);
-            display: none;
+            text-align: center;
+            color: white;
         }
-        .login-container h2, .message-container h2 {
-            margin-bottom: 20px;
+        #search-bar {
+            margin: 20px;
+            text-align: center;
         }
-        input, button {
-            width: 100%;
-            padding: 5px;
-            margin: 5px 0;
-        }
-        button {
-            background-color: #690000;
-            color: rgb(97, 97, 97);
-            border-radius: 5px;
-            position: static;
-        }
-        .message {
-            color: red;
-            margin-top: 10px;
-        }
-        #messages {
-            margin-bottom: 20px;
-            border: 1px solid rgb(66, 19, 19);
+        #search-bar input[type="text"] {
+            width: 50%;
             padding: 10px;
-            height: 300px;
-            overflow-y: scroll;
+            font-size: 16px;
+        }
+        .video-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .video-container {
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            text-align: center;
+        }
+        .video-container video {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .profile-pic {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .profile-pic img {
+            width: 100%;
+            height: auto;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
         }
     </style>
+    <script>
+        document.addEventListener('keydown', function(event) {
+            if (event.altKey && event.key === 'a') {
+                window.open('https://clever.com/in/ogusd/student/portal', '_blank');
+            }
+        });
+    </script>    
 </head>
 <body>
 
-<div class="login-container" id="loginContainer">
-    <h2></h2>
-    <form id="loginForm">
-        <input type="text" id="username" placeholder="Username" required>
-        <input type="password" id="password" placeholder="Password" required>
-        <button type="submit">Login</button>
-        <div class="message" id="message"></div>
-    </form>
-</div>
+    <header>
+        <h1>?Google Classroom?</h1>
+    </header>
 
-<div class="message-container" id="messageContainer">
-    <h2>Messaging System</h2>
-    <div id="messages"></div>
-    <form id="messageForm">
-        <input type="text" id="messageInput" placeholder="Type your message here" required>
-        <button type="submit">Send</button>
-    </form>
-</div>
 
-<script>
-    // Login functionality
-    const loginForm = document.getElementById('loginForm');
-    const messageDiv = document.getElementById('message');
-    const loginContainer = document.getElementById('loginContainer');
-    const messageContainer = document.getElementById('messageContainer');
+    <div class="profile-pic">
+        <img src="https://cdn.discordapp.com/attachments/1269797067375775867/1284288935174078494/attachment-9.gif?ex=6718d887&is=67178707&hm=e3743d8691751eecb4ddb33ab9536f34ce0386363878d08b3f664f1ac65c4e41&" alt="Profile Picture">
+    </div>
 
-    const validUsername = 'WhisperSecret817';
-    const validPassword = 'SchoolChat';
+    <div id="search-bar">
+        <input type="text" placeholder="Search for videos..." />
+    </div>
 
-    loginContainer.style.display = 'flex';
+    <section class="video-grid">
+        <!-- Video 1 -->
+        <div class="video-container">
+            <h3>Bluey</h3>
+            <video controls>
+                <source src="https://cecil42.oceansaver.in/pacific/?kbkCpc6MzyQWrm6utl1zrkt" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
 
-    loginForm.addEventListener('submit', function(event) {
-        event.preventDefault();
+        <!-- Video 2 -->
+        <div class="video-container">
+            <h3>Curious George</h3>
+            <video controls>
+                <source src="https://node15.dlmate.cc/dl?hash=lUOA8jm8MKK9RWS9Apl4o2d3jRGV5TPNzhF1AXtAiUb%2FH1bgC6ucVFhJiJ5HT90WUdlQNHhp6UfJFYrVJmZi0MbRb1TyRCdE2Bc7Rik6A%2BAevQ%2BJOQoiQx2a%2FKbMEDisXDIc8gdjv002MVOJryX%2FDHF7VNpWw1tgV9iMpeTdvZw3MgNV3QpWBNXMjssvQhZrWcjB8FpS5UauJaNLokksxi0dXs%2B60wiWjes21VxUSWZnCJH3v2FydEWhm7ptj3AGiVZBuEBE%2BeZmAx1vSkHM7yzJKSwi4jdEBdUx%2BhkZIkmyybOaIpMuOeTE0PDzMP0xeBUP3EAx0XyuI2nUKA54CQ%3D%3D" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
 
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-
-        if (username === validUsername && password === validPassword) {
-            messageDiv.textContent = 'Login successful!';
-            messageDiv.style.color = 'green';
-            loginContainer.style.display = 'none';
-            messageContainer.style.display = 'block';
-        } else {
-            messageDiv.textContent = 'Invalid username or password.';
-            messageDiv.style.color = 'red';
-        }
-    });
-
-    const messageForm = document.getElementById('messageForm');
-    const messageInput = document.getElementById('messageInput');
-    const messagesDiv = document.getElementById('messages');
-
-    messageForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const message = messageInput.value;
-        displayMessage(message);
-        messageInput.value = '';
-    });
-
-    function displayMessage(message) {
-        const messageElement = document.createElement('div');
-        messageElement.textContent = message;
-        messagesDiv.appendChild(messageElement);
-        messagesDiv.scrollTop = messagesDiv.scrollHeight;
-    }
-</script>
-
+        <!-- Video 3 -->
+        <div class="video-container">
+            <h3>Caillou</h3>
+            <video controls>
+                <source src="https://node9.dlmate.cc/dl?hash=KUL4GzPCpvzO9yu2mlEL0fro0az0%2Bf0ii3fcax33IxEzCCh9BQX2Wrce1iHk6nKXej6ECIGU0CwEJGOaXIjcFB1RWB3%2FxSOLQqAIsPdmuV831tPVCdUDn371OS5WizPNRjcalY77AXpv%2B1%2FxxPplV4LzuJgHoND54GBGYlfIKBaBgH3C6a6jDwVkSO2nggzAn686dZ0pU366SN1s763xBBjkHutg8dVISr1SHikQEImCmvb4hIhLvvxFtQ%2FQkdEcaamysZNRAecE32WR6A59vYUawprUr8J31VT%2FI1kbpU0%3D" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
 </body>
 </html>
